@@ -14,17 +14,17 @@ public class SubtreeOfAnotherTree {
         if (s == null) {
             return false;
         }
-        return isSubtreeWithCurrentNode(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
+        return isSameNode(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
     }
 
-    public boolean isSubtreeWithCurrentNode(TreeNode s, TreeNode t) {
+    public boolean isSameNode(TreeNode s, TreeNode t) {
         if (s == null && t == null) {
             return true;
         }
         if (s == null || t == null || s.val != t.val) {
             return false;
         }
-        return isSubtreeWithCurrentNode(s.left, t.left) && isSubtreeWithCurrentNode(s.right, t.right);
+        return isSameNode(s.left, t.left) && isSameNode(s.right, t.right);
     }
 
     public static class TreeNode {
